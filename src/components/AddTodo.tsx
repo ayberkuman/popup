@@ -5,19 +5,18 @@ type Props = {
 };
 
 export const AddTodo: React.FC<Props> = ({ saveTodo }) => {
-  const [formData, setFormData] = useState<ITodo>();
+  const [formData, setFormData] = useState<string>();
 
-  const handleForm = (e: React.FormEvent<HTMLInputElement>): void => {
-    setFormData({
-      ...formData,
-      content: e.currentTarget.value,
-    });
+  const handleSubmit = ({ e, formData }) => {
+    e.preventDefault();
+    e.currentTarget.reset();
+    saveTodo(e, formData);
   };
 
   return (
     <form
       className="flex justify-around items-center p-4"
-      onSubmit={(e) => saveTodo(e, formData)}
+      onSubmit={(e) => handleSubmit({ e, formData })}
     >
       <div>
         <div>
@@ -26,7 +25,7 @@ export const AddTodo: React.FC<Props> = ({ saveTodo }) => {
             className="border-2 p-2 m-2"
             required={true}
             minLength={3}
-            onChange={handleForm}
+            onChange={(e) => setFormData(e.currentTarget.value)}
             type="text"
             placeholder="Todo content"
             id="content"

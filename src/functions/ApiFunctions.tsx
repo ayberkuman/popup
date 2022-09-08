@@ -14,11 +14,11 @@ export const getTodos = async (): Promise<AxiosResponse<ApiDataType>> => {
 };
 
 export const addTodo = async (
-  formData: ITodo
+  formData: string
 ): Promise<AxiosResponse<ApiDataType>> => {
   try {
     const todo: Omit<ITodo, "id"> = {
-      content: formData.content,
+      content: formData,
       isCompleted: false,
     };
     const saveTodo: AxiosResponse<ApiDataType> = await axios.post(

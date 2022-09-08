@@ -29,8 +29,9 @@ export default function Todos() {
   }, []);
 
   /* Crud handling functions---------------------------------------------- */
-  const handleSaveTodo = (e: React.FormEvent, formData: ITodo): void => {
+  const handleSaveTodo = (e: React.FormEvent, formData: string): void => {
     e.preventDefault();
+    console.log(formData);
     addTodo(formData)
       .then(({ status }) => {
         if (status !== 201) {
