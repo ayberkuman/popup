@@ -1,28 +1,39 @@
-import { useState } from "react";
+import React from "react";
+import { ITodo } from "../types";
 
 export const TodoItem = ({
   todo,
-  content,
-  isCompleted,
-  id,
-  handleDeleteTodo,
+  updateTodo,
+  deleteTodo,
 }: {
-  todo: object;
-  content: string;
-  isCompleted: boolean;
-  id: number;
-  handleDeleteTodo: Function;
+  todo: ITodo;
+  updateTodo: Function;
+  deleteTodo: Function;
 }) => {
-  const [isDone, setIsDone] = useState(isCompleted);
-  console.log(todo);
+  const checkTodo: string = todo.isCompleted ? `line-through` : "";
   return (
-    <div className=" bg-red-400 flex justify-around p-4 py-8">
-      <div>{content}</div>
-      <button onClick={() => setIsDone(!isDone)}>
-        {isDone ? "Completed" : "Not Completed"}
-      </button>
-      <div>{id}</div>
-      <button onClick={() => handleDeleteTodo(id)}>delete</button>
+    <div className="flex justify-around items-center rounded-xl border-2 p-4">
+      <div className="font-semibold text-lg">
+        <h1 className={checkTodo}>{todo.content.toUpperCase()}</h1>
+      </div>
+      <div className="grow p-2 rounded-3xl flex justify-end">
+        <button
+          onClick={() => updateTodo(todo)}
+          className={
+            todo.isCompleted
+              ? `hidden`
+              : "bg-[#00aa69] text-white border-2 p-2 mx-4"
+          }
+        >
+          Complete
+        </button>
+        <button
+          onClick={() => deleteTodo(todo.id)}
+          className="bg-[#ca0000] p-2 text-white border-2 rounded-md mx-4 "
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 };
