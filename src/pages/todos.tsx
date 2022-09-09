@@ -68,7 +68,7 @@ export default function Todos() {
   };
   /* Crud handling functions end---------------------------------------------- */
   return (
-    <main className="max-w-3xl m-auto flex flex-col gap-4">
+    <main className="max-w-3xl m-auto flex flex-col gap-4 p-4">
       <h1 className="text-center text-5xl">My Todos</h1>
       <h2 className="text-center text-2xl">
         Welcome <span className="text-blue-500">{username}</span>

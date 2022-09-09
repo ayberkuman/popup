@@ -20,9 +20,11 @@ export const AddTodo: React.FC<Props> = ({ saveTodo }) => {
     >
       <div>
         <div>
-          <label htmlFor="name">Content:</label>
+          <label className="text-xl" htmlFor="content">
+            Content:
+          </label>
           <input
-            className="border-2 p-2 m-2"
+            className="border-2 rounded-md text-black p-2 m-2"
             required={true}
             minLength={3}
             onChange={(e) => setFormData(e.currentTarget.value)}

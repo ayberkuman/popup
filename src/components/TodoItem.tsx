@@ -12,8 +12,8 @@ export const TodoItem = ({
 }) => {
   const checkTodo: string = todo.isCompleted ? `line-through` : "";
   return (
-    <div className="flex justify-around items-center rounded-xl border-2 p-4">
-      <div className="font-semibold text-lg">
+    <div className="flex justify-around items-center rounded-xl border-2 p-4 bg-white ">
+      <div className="font-semibold text-lg text-black">
         <h1 className={checkTodo}>{todo.content.toUpperCase()}</h1>
       </div>
       <div className="grow p-2 rounded-3xl flex justify-end">

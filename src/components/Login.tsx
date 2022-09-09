@@ -21,6 +21,9 @@ export const Login = () => {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col items-center p-4">
+      <label className="self-start p-2 text-white" htmlFor="username">
+        Username
+      </label>
       <input
         className="p-2 border-2"
         placeholder="Username"
@@ -33,7 +36,7 @@ export const Login = () => {
         onChange={(e) => setUsername(e.target.value)}
       />
       <button
-        className="bg-[#005bca] p-2 text-white border-2 rounded-md m-4"
+        className="bg-blue-500 p-2 text-white border-2 rounded-md m-4"
         type="submit"
       >
         Submit
